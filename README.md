@@ -50,3 +50,10 @@ git clone [https://github.com/josecelsodelucas2-lgtm/camc-mel-chia.git](https://
 cd camc-mel-chia
 
 # 3. Abra o ficheiro index.html no navegador ou utilize a extensão Live Server no VS Code
+
+👤 Autor
+Desenvolvido por José Celso de Lucas
+
+Estudante de Análise e Desenvolvimento de Sistemas
+
+GitHub
