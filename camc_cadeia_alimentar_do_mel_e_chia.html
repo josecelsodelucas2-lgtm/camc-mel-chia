@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMC • Mel & Chia | Da Colmeia e do Campo à Sua Mesa</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        botanic: {
+                            DEFAULT: '#1B3B2B',
+                            light: '#2C5640',
+                            dark: '#11261B',
+                            soft: '#EDF4EF'
+                        },
+                        amber: {
+                            glow: '#F59E0B',
+                            warm: '#D97706',
+                            light: '#FEF3C7',
+                            honey: '#E5A93C'
+                        },
+                        cream: {
+                            DEFAULT: '#FBF9F5',
+                            card: '#FFFFFF',
+                            dark: '#F0ECE1'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FBF9F5;
+            color: #1F2937;
+        }
+        .glass-header {
+            background: rgba(27, 59, 43, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(229, 169, 60, 0.15);
+        }
+        .glass-dark {
+            background: rgba(27, 59, 43, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .honey-gradient {
+            background: linear-gradient(135deg, #E5A93C 0%, #D97706 100%);
+        }
+        .botanic-gradient {
+            background: linear-gradient(135deg, #1B3B2B 0%, #2C5640 100%);
+        }
+        .badge-pulse {
+            animation: pulse-border 2s infinite;
+        }
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(229, 169, 60, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(229, 169, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(229, 169, 60, 0); }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F1F1F1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #D97706;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-amber-honey text-botanic-dark text-xs font-semibold py-2 px-4 text-center tracking-wide flex justify-center items-center gap-2 shadow-sm">
+        <span class="bg-botanic-dark text-amber-honey px-2 py-0.5 rounded-full text-[10px] uppercase font-bold tracking-wider">Nova Safra 2026</span>
+        <span>Lotes de Mel Silvestre e Chia Selecionada rastreáveis em tempo real!</span>
+        <a href="#rastreamento" class="underline font-bold hover:text-white transition">Rastrear Meu Lote &rarr;</a>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 glass-header text-white transition-all duration-300 border-b border-amber-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- LOGO -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl honey-gradient flex items-center justify-center text-botanic-dark shadow-md group-hover:scale-105 transition-transform duration-300">
+                        <i class="fa-solid fa-wheat-awn-circle-exclamation text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-2xl font-bold tracking-tight text-white block">CAMC</span>
+                        <span class="text-[10px] text-amber- honey tracking-widest uppercase block -mt-1 text-amber-300 font-semibold">Mel & Chia Rastreáveis</span>
+                    </div>
+                </a>
+
+                <!-- DESKTOP NAV -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-200">
+                    <a href="#produtos" class="hover:text-amber-400 transition-colors py-1">Produtos</a>
+                    <a href="#rastreamento" class="hover:text-amber-400 transition-colors py-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-seedling text-amber-400 text-xs"></i> Farm-to-Table
+                    </a>
+                    <a href="#sustentabilidade" class="hover:text-amber-400 transition-colors py-1">Sustentabilidade</a>
+                    <a href="#feedback" class="hover:text-amber-400 transition-colors py-1">Feedback Consumidor</a>
+                    <a href="#gestao" class="hover:text-amber-400 transition-colors py-1 text-amber-300 font-semibold flex items-center gap-1">
+                        <i class="fa-solid fa-chart-line text-xs"></i> Painel Gestor
+                    </a>
+                </nav>
+
+                <!-- HEADER ACTIONS -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#rastreamento" class="text-xs font-semibold px-4 py-2 rounded-lg border border-amber-400/50 text-amber-300 hover:bg-amber-400/10 transition">
+                        <i class="fa-solid fa-qrcode mr-1.5"></i> Rastrear Lote
+                    </a>
+                    <button onclick="toggleCartModal()" class="relative bg-amber-warm hover:bg-amber-600 text-white p-2.5 rounded-xl transition flex items-center justify-center shadow-lg">
+                        <i class="fa-solid fa-basket-shopping text-base"></i>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-white text-botanic-dark text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-botanic shadow">0</span>
+                    </button>
+                </div>
+
+                <!-- MOBILE MENU BUTTON -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-gray-200 hover:text-white focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU CONTAINER -->
+        <div id="mobile-menu" class="hidden md:hidden bg-botanic-dark border-b border-amber-500/20 px-4 pt-2 pb-6 space-y-3">
+            <a href="#produtos" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-200 hover:text-amber-400">Produtos</a>
+            <a href="#rastreamento" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-200 hover:text-amber-400">Rastreabilidade Farm-to-Table</a>
+            <a href="#sustentabilidade" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-200 hover:text-amber-400">Sustentabilidade</a>
+            <a href="#feedback" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-200 hover:text-amber-400">Avaliação do Cliente</a>
+            <a href="#gestao" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-amber-300 font-semibold">Painel Integrado Gestor</a>
+            <div class="pt-4 flex flex-col gap-2">
+                <a href="#rastreamento" onclick="toggleMobileMenu()" class="w-full text-center py-2.5 rounded-lg border border-amber-400 text-amber-300 font-semibold text-sm">
+                    Rastrear Meu Lote
+                </a>
+                <button onclick="toggleMobileMenu(); toggleCartModal();" class="w-full py-2.5 rounded-lg bg-amber-warm text-white font-semibold text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-basket-shopping"></i> Ver Carrinho (<span id="cart-count-mobile">0</span>)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-botanic overflow-hidden text-white pt-12 pb-24 lg:pt-20 lg:pb-32">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#E5A93C_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-amber-warm/20 blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-botanic-light/40 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-warm/15 border border-amber-400/30 text-amber-300 text-xs font-semibold tracking-wide">
+                        <i class="fa-solid fa-award text-amber-400"></i>
+                        Cadeia Produtiva Integrada 100% Rastreável
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-cream">
+                        Da Colmeia e do Campo <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">Direto à Sua Mesa.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-gray-300 font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Unimos o manejo agrícola sustentável da Chia ao cuidado apícola no cultivo de Mel Silvestre Puro. Conheça nossa barra energética funcional inovadora com selo de origem transparente.
+                    </p>
+
+                    <!-- Trust Badges -->
+                    <div class="py-2 flex flex-wrap justify-center lg:justify-start gap-4 text-xs font-semibold text-gray-300">
+                        <span class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+                            <i class="fa-solid fa-leaf text-emerald-400"></i> 100% Orgânico & Puro
+                        </span>
+                        <span class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+                            <i class="fa-solid fa-microscope text-amber-400"></i> Controle de Qualidade Lab
+                        </span>
+                        <span class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+                            <i class="fa-solid fa-truck-fast text-sky-400"></i> Logística Direta
+                        </span>
+                    </div>
+
+                    <!-- Call To Actions -->
+                    <div class="pt-4 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                        <a href="#produtos" class="px-8 py-4 rounded-xl honey-gradient text-botanic-dark font-bold text-base shadow-xl hover:shadow-amber-500/20 hover:scale-[1.02] transition-all duration-300 text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-jar text-lg"></i> Explorar Nossos Produtos
+                        </a>
+                        <a href="#rastreamento" class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-base transition-all duration-300 text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass-location"></i> Consultar Lote
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Feature Hero Box -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Hero Card Stack -->
+                        <div class="glass-dark border border-amber-400/30 rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+                            <div class="absolute -top-4 -right-4 bg-amber-warm text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg badge-pulse">
+                                Rastreabilidade Ativa
+                            </div>
+
+                            <div class="flex items-center gap-4 border-b border-white/10 pb-6 mb-6">
+                                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-botanic-dark text-2xl font-bold shadow-md">
+                                    <i class="fa-solid fa-cubes-stacked"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-serif text-xl font-bold text-white">Último Lote Rastreado</h3>
+                                    <p class="text-xs text-amber-300">Código: <span class="font-mono bg-white/10 px-2 py-0.5 rounded text-white">#BARRA-CAMC-88</span></p>
+                                </div>
+                            </div>
+
+                            <!-- Mini Timeline Preview -->
+                            <div class="space-y-4 text-xs">
+                                <div class="flex items-center gap-3 text-emerald-400">
+                                    <div class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-400">
+                                        <i class="fa-solid fa-check text-[10px]"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="font-semibold text-white">Colheita & Manejo Concluído</div>
+                                        <div class="text-[11px] text-gray-400">Fazenda CAMC • Umidade Solo: 18.2%</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3 text-emerald-400">
+                                    <div class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-400">
+                                        <i class="fa-solid fa-check text-[10px]"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="font-semibold text-white">Análise de Pureza Manual</div>
+                                        <div class="text-[11px] text-gray-400">Índice de Pureza: 99.8% Aprovação Sem Restrições</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3 text-amber-300">
+                                    <div class="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center border border-amber-400 animate-pulse">
+                                        <i class="fa-solid fa-truck-ramp-box text-[10px]"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="font-semibold text-white">Em Trânsito para o Distribuidor</div>
+                                        <div class="text-[11px] text-amber-200/80">Previsão de Entrega: Hoje às 16:30h</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button onclick="setQuickSearch('#BARRA-CAMC-88')" class="w-full mt-6 py-2.5 bg-amber-warm/20 hover:bg-amber-warm/40 border border-amber-400/40 text-amber-200 text-xs font-bold rounded-xl transition flex items-center justify-center gap-2">
+                                Inspect Full Timeline Data <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- METRICS QUICK BAR -->
+    <section class="bg-cream-dark border-y border-amber-900/10 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4 rounded-2xl bg-white shadow-sm border border-amber-900/5">
+                    <div class="font-serif text-3xl font-bold text-botanic">99.9%</div>
+                    <div class="text-xs text-gray-600 font-medium mt-1">Índice Médio de Pureza</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-white shadow-sm border border-amber-900/5">
+                    <div class="font-serif text-3xl font-bold text-amber-warm">100%</div>
+                    <div class="text-xs text-gray-600 font-medium mt-1">Lotes Rastreáveis via QR</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-white shadow-sm border border-amber-900/5">
+                    <div class="font-serif text-3xl font-bold text-botanic">4.9/5</div>
+                    <div class="text-xs text-gray-600 font-medium mt-1">Satisfação Consumidor (NPS)</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-white shadow-sm border border-amber-900/5">
+                    <div class="font-serif text-3xl font-bold text-amber-warm">0%</div>
+                    <div class="text-xs text-gray-600 font-medium mt-1">Conservantes Sintéticos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT CATALOG SECTION -->
+    <section id="produtos" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-warm text-xs font-bold uppercase tracking-widest bg-amber-warm/10 px-3 py-1 rounded-full">Nossa Linha Artesanal</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-botanic mt-3">Alimentos Funcionais de Alta Pureza</h2>
+                <p class="text-gray-600 text-sm sm:text-base mt-2">Cultivados com manejo de precisão na Fazenda CAMC e transformados mantendo todas as propriedades nutricionais vivas.</p>
+            </div>
+
+            <!-- PRODUCT CARDS GRID -->
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- PRODUCT 1: MEL PURO SILVESTRE -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl shadow-amber-900/5 border border-amber-900/10 flex flex-col hover:-translate-y-1.5 transition-all duration-300">
+                    <div class="relative bg-gradient-to-br from-amber-100 to-amber-200 p-8 text-center h-64 flex items-center justify-center overflow-hidden">
+                        <span class="absolute top-4 left-4 bg-botanic text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Extração a Frio</span>
+                        <div class="w-32 h-32 rounded-full bg-amber-400/30 flex items-center justify-center text-amber-700 text-6xl shadow-inner">
+                            <i class="fa-solid fa-jar text-amber-600"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif text-xl font-bold text-botanic">Mel Silvestre Puro CAMC</h3>
+                                <span class="font-bold text-amber-warm text-lg">R$ 42,90</span>
+                            </div>
+                            <p class="text-gray-600 text-xs leading-relaxed mb-4">
+                                Mel 100% puro extraído de apiários sustentáveis. Florada silvestre rica em antioxidantes com textura aveludada e notas florais intensas.
+                            </p>
+
+                            <div class="bg-cream-dark p-3 rounded-xl mb-4 text-xs space-y-1">
+                                <div class="flex justify-between text-gray-700"><span>Origem Apiário:</span> <strong class="text-botanic">Setor Norte / Colmeia 04</strong></div>
+                                <div class="flex justify-between text-gray-700"><span>Pureza Medida:</span> <strong class="text-emerald-700">99.9% Testado em Lab</strong></div>
+                                <div class="flex justify-between text-gray-700"><span>Volume Médio:</span> <strong>500g</strong></div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 pt-2">
+                            <button onclick="addToCart('Mel Silvestre Puro CAMC', 42.90, 'Mel')" class="w-full py-3 rounded-xl honey-gradient text-botanic-dark font-bold text-xs uppercase tracking-wider shadow-md hover:brightness-105 transition">
+                                <i class="fa-solid fa-cart-plus mr-1.5"></i> Adicionar ao Carrinho
+                            </button>
+                            <button onclick="openProductModal(1)" class="w-full py-2 text-xs font-semibold text-gray-500 hover:text-botanic transition">
+                                Ver Tabela Nutricional & Laudo &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 2: CHIA PREMIUM SELECIONADA -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl shadow-amber-900/5 border border-amber-900/10 flex flex-col hover:-translate-y-1.5 transition-all duration-300">
+                    <div class="relative bg-gradient-to-br from-emerald-100 to-emerald-200 p-8 text-center h-64 flex items-center justify-center overflow-hidden">
+                        <span class="absolute top-4 left-4 bg-emerald-800 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Superfood 99.9% Pura</span>
+                        <div class="w-32 h-32 rounded-full bg-emerald-400/30 flex items-center justify-center text-emerald-800 text-6xl shadow-inner">
+                            <i class="fa-solid fa-seedling text-emerald-700"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif text-xl font-bold text-botanic">Chia Granel Premium</h3>
+                                <span class="font-bold text-amber-warm text-lg">R$ 28,50</span>
+                            </div>
+                            <p class="text-gray-600 text-xs leading-relaxed mb-4">
+                                Sementes de Chia beneficiadas mecanicamente com limpeza óptica de alta precisão. Fonte abundante de Ômega-3, fibras solúveis e proteínas.
+                            </p>
+
+                            <div class="bg-cream-dark p-3 rounded-xl mb-4 text-xs space-y-1">
+                                <div class="flex justify-between text-gray-700"><span>Manejo Agrícola:</span> <strong class="text-botanic">Solo Monitorado</strong></div>
+                                <div class="flex justify-between text-gray-700"><span>Limpeza & Seleção:</span> <strong class="text-emerald-700">Seleção Óptica Avançada</strong></div>
+                                <div class="flex justify-between text-gray-700"><span>Peso Líquido:</span> <strong>500g</strong></div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 pt-2">
+                            <button onclick="addToCart('Chia Granel Premium CAMC', 28.50, 'Chia')" class="w-full py-3 rounded-xl honey-gradient text-botanic-dark font-bold text-xs uppercase tracking-wider shadow-md hover:brightness-105 transition">
+                                <i class="fa-solid fa-cart-plus mr-1.5"></i> Adicionar ao Carrinho
+                            </button>
+                            <button onclick="openProductModal(2)" class="w-full py-2 text-xs font-semibold text-gray-500 hover:text-botanic transition">
+                                Ver Tabela Nutricional & Laudo &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 3: BARRA ENERGÉTICA MEL & CHIA -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl shadow-amber-900/5 border border-amber-900/10 flex flex-col hover:-translate-y-1.5 transition-all duration-300 relative">
+                    <div class="absolute top-4 right-4 z-10 bg-amber-warm text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                        Destaque Inovação
+                    </div>
+                    <div class="relative bg-gradient-to-br from-amber-900/90 to-botanic p-8 text-center h-64 flex items-center justify-center overflow-hidden">
+                        <div class="w-32 h-32 rounded-2xl bg-amber-400/20 border border-amber-400/30 flex items-center justify-center text-amber-300 text-5xl shadow-2xl rotate-3">
+                            <i class="fa-solid fa-bolt text-amber-400"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif text-xl font-bold text-botanic">Barra Energética Mel & Chia</h3>
+                                <span class="font-bold text-amber-warm text-lg">R$ 9,90 <span class="text-xs text-gray-400 font-normal">/un</span></span>
+                            </div>
+                            <p class="text-gray-600 text-xs leading-relaxed mb-4">
+                                Combinação sinérgica inovadora de mel puro silvestre e chia integral. Energia funcional de liberação prolongada sem açúcares refinados ou conservantes.
+                            </p>
+
+                            <div class="bg-cream-dark p-3 rounded-xl mb-4 text-xs space-y-1">
+                                <div class="flex justify-between text-gray-700"><span>Processamento:</span> <strong class="text-botanic">Semiautomatizado</strong></div>
+                                <div class="flex justify-between text-gray-700"><span>Perfil Nutricional:</span> <strong class="text-amber-700">12g Fibra + 8g Proteína</strong></div>
+                                <div class="flex justify-between text-gray-700"><span>Embalagem:</span> <strong>100% Reciclável</strong></div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 pt-2">
+                            <button onclick="addToCart('Barra Energética Mel & Chia', 9.90, 'Barra')" class="w-full py-3 rounded-xl honey-gradient text-botanic-dark font-bold text-xs uppercase tracking-wider shadow-md hover:brightness-105 transition">
+                                <i class="fa-solid fa-cart-plus mr-1.5"></i> Adicionar ao Carrinho
+                            </button>
+                            <button onclick="openProductModal(3)" class="w-full py-2 text-xs font-semibold text-gray-500 hover:text-botanic transition">
+                                Ver Tabela Nutricional & Laudo &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TRACEABILITY SECTION (FARM-TO-TABLE CORE FEATURE) -->
+    <section id="rastreamento" class="py-20 bg-botanic text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(#E5A93C_1px,transparent_1px)] [background-size:32px_32px] opacity-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-300 text-xs font-bold uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full border border-amber-400/30">
+                    <i class="fa-solid fa-qrcode mr-1"></i> Transparência Radical
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cream mt-3">Módulo Rastreabilidade "Farm-to-Table"</h2>
+                <p class="text-gray-300 text-sm sm:text-base mt-2">Digite o código de lote presente na embalagem do seu produto para visualizar cada etapa da colheita ao transporte.</p>
+            </div>
+
+            <!-- SEARCH FORM CARD -->
+            <div class="max-w-2xl mx-auto glass-dark p-6 sm:p-8 rounded-3xl border border-amber-400/30 shadow-2xl mb-12">
+                <form onsubmit="searchLot(event)" class="flex flex-col sm:flex-row gap-3">
+                    <div class="relative flex-1">
+                        <i class="fa-solid fa-barcode absolute left-4 top-1/2 -translate-y-1/2 text-amber-400 text-lg"></i>
+                        <input type="text" id="lot-input" placeholder="Ex: #BARRA-CAMC-88" class="w-full pl-12 pr-4 py-3.5 bg-white/10 border border-amber-400/30 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-amber-400 uppercase font-mono text-sm">
+                    </div>
+                    <button type="submit" class="px-6 py-3.5 honey-gradient text-botanic-dark font-bold text-sm rounded-xl hover:brightness-110 transition shadow-lg flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-search"></i> Rastrear Agora
+                    </button>
+                </form>
+
+                <!-- QUICK CLICKABLE LOTES -->
+                <div class="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs">
+                    <span class="text-gray-400">Lotes de teste:</span>
+                    <button onclick="setQuickSearch('#BARRA-CAMC-88')" class="bg-white/10 hover:bg-white/20 border border-white/20 px-2.5 py-1 rounded-md font-mono text-amber-300 transition">#BARRA-CAMC-88</button>
+                    <button onclick="setQuickSearch('#LOTE-MEL-402')" class="bg-white/10 hover:bg-white/20 border border-white/20 px-2.5 py-1 rounded-md font-mono text-amber-300 transition">#LOTE-MEL-402</button>
+                    <button onclick="setQuickSearch('#LOTE-CHIA-2026')" class="bg-white/10 hover:bg-white/20 border border-white/20 px-2.5 py-1 rounded-md font-mono text-amber-300 transition">#LOTE-CHIA-2026</button>
+                </div>
+            </div>
+
+            <!-- DYNAMIC TIMELINE RESULT BOX -->
+            <div id="timeline-container" class="max-w-4xl mx-auto glass-dark p-6 sm:p-10 rounded-3xl border border-amber-400/20 shadow-2xl">
+                <!-- Javascript populates this -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 3-CLICK CONSUMER FEEDBACK SYSTEM -->
+    <section id="feedback" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left info -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-amber-warm text-xs font-bold uppercase tracking-widest bg-amber-warm/10 px-3 py-1 rounded-full">Sua Opinião Importa</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-botanic">Avaliação Inteligente em 3 Clicks</h2>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Substituímos pesquisas subjetivas por um canal direto e rápido de feedback. Cada avaliação atualiza em tempo real o indicador de qualidade da nossa produção.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-full bg-botanic text-amber-400 flex items-center justify-center font-bold text-sm shrink-0">1</div>
+                            <div>
+                                <h4 class="font-bold text-botanic text-sm">Escolha o Produto</h4>
+                                <p class="text-xs text-gray-500">Selecione o item que você experimentou recentemente.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-full bg-botanic text-amber-400 flex items-center justify-center font-bold text-sm shrink-0">2</div>
+                            <div>
+                                <h4 class="font-bold text-botanic text-sm">Sua Nota & Sensação</h4>
+                                <p class="text-xs text-gray-500">Escolha as estrelas e as tags que descrevem sua experiência.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-full bg-botanic text-amber-400 flex items-center justify-center font-bold text-sm shrink-0">3</div>
+                            <div>
+                                <h4 class="font-bold text-botanic text-sm">Envio & Cupom Instantâneo</h4>
+                                <p class="text-xs text-gray-500">Receba na hora um cupom de 15% OFF para seu próximo pedido.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Feedback Form -->
+                <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-amber-900/10">
+                    <form id="feedback-form" onsubmit="submitFeedback(event)" class="space-y-6">
+                        
+                        <!-- Step 1: Select Product -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">1. Produto Avaliado</label>
+                            <div class="grid grid-cols-3 gap-3">
+                                <button type="button" onclick="selectFeedbackProduct(this, 'Mel Silvestre')" class="fb-prod-btn border-2 border-gray-200 p-3 rounded-2xl text-center hover:border-amber-warm transition text-xs font-bold text-gray-700">
+                                    <i class="fa-solid fa-jar text-amber-warm text-xl block mb-1"></i>
+                                    Mel Silvestre
+                                </button>
+                                <button type="button" onclick="selectFeedbackProduct(this, 'Chia Premium')" class="fb-prod-btn border-2 border-gray-200 p-3 rounded-2xl text-center hover:border-amber-warm transition text-xs font-bold text-gray-700">
+                                    <i class="fa-solid fa-seedling text-emerald-600 text-xl block mb-1"></i>
+                                    Chia Premium
+                                </button>
+                                <button type="button" onclick="selectFeedbackProduct(this, 'Barra Mel & Chia')" class="fb-prod-btn border-2 border-gray-200 p-3 rounded-2xl text-center hover:border-amber-warm transition text-xs font-bold text-gray-700 active-prod border-amber-warm bg-amber-50">
+                                    <i class="fa-solid fa-bolt text-amber-600 text-xl block mb-1"></i>
+                                    Barra Energética
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Rating Stars & Tags -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">2. Sua Nota & Sensações</label>
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="flex text-amber-400 text-2xl gap-1 cursor-pointer" id="star-rating">
+                                    <i class="fa-solid fa-star" onclick="setRating(1)"></i>
+                                    <i class="fa-solid fa-star" onclick="setRating(2)"></i>
+                                    <i class="fa-solid fa-star" onclick="setRating(3)"></i>
+                                    <i class="fa-solid fa-star" onclick="setRating(4)"></i>
+                                    <i class="fa-solid fa-star" onclick="setRating(5)"></i>
+                                </div>
+                                <span id="rating-label" class="text-xs font-bold text-amber-600 bg-amber-100 px-2.5 py-1 rounded-full">5.0 - Excelente!</span>
+                            </div>
+
+                            <!-- Tags -->
+                            <div class="flex flex-wrap gap-2" id="feedback-tags">
+                                <button type="button" onclick="toggleTag(this)" class="tag-btn bg-gray-100 hover:bg-amber-100 text-gray-700 text-xs px-3 py-1.5 rounded-full font-medium transition">✨ Sabor Autêntico</button>
+                                <button type="button" onclick="toggleTag(this)" class="tag-btn bg-gray-100 hover:bg-amber-100 text-gray-700 text-xs px-3 py-1.5 rounded-full font-medium transition">🌱 Crocante & Fresco</button>
+                                <button type="button" onclick="toggleTag(this)" class="tag-btn bg-gray-100 hover:bg-amber-100 text-gray-700 text-xs px-3 py-1.5 rounded-full font-medium transition">📦 Embalagem Prática</button>
+                                <button type="button" onclick="toggleTag(this)" class="tag-btn bg-gray-100 hover:bg-amber-100 text-gray-700 text-xs px-3 py-1.5 rounded-full font-medium transition">⚡ Energia Duradoura</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Optional Comment & Submit -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">3. Comentário Adicional (Opcional)</label>
+                            <textarea id="feedback-comment" rows="2" placeholder="Conte mais sobre sua experiência com o lote..." class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-xs text-gray-800 focus:outline-none focus:border-amber-warm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 honey-gradient text-botanic-dark font-bold text-sm rounded-xl shadow-lg hover:brightness-105 transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Enviar Avaliação & Gerar Cupom
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTEGRATED MANAGEMENT DASHBOARD (PORTAL DO GESTOR CAMC) -->
+    <section id="gestao" class="py-20 bg-botanic-dark text-white border-t border-amber-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+                <div>
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-widest bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/30">
+                        Visão Interna Integrada
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">Painel de Operações & Rastreio</h2>
+                    <p class="text-gray-400 text-sm mt-1">Consolidação em tempo real do campo, laboratório apícola, estoque de insumos e satisfação do cliente.</p>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <span class="inline-flex items-center gap-2 text-xs bg-emerald-500/20 text-emerald-300 px-3 py-1.5 rounded-full border border-emerald-500/30 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Sistema Online
+                    </span>
+                    <button onclick="refreshDashboard()" class="bg-white/10 hover:bg-white/20 p-2 rounded-xl text-amber-300 text-xs font-bold transition">
+                        <i class="fa-solid fa-arrows-rotate"></i> Atualizar
+                    </button>
+                </div>
+            </div>
+
+            <!-- DASHBOARD GRID CARDS -->
+            <div class="grid md:grid-cols-4 gap-6 mb-8">
+                
+                <!-- Card 1: Solo & Clima -->
+                <div class="glass-dark p-6 rounded-2xl border border-amber-400/20">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs text-gray-400 font-semibold uppercase">Manejo Chia (Solo)</span>
+                        <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-droplet"></i>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-bold text-white mb-1" id="dash-soil">18.4% Umidade</div>
+                    <p class="text-[11px] text-emerald-400 font-medium"><i class="fa-solid fa-check-circle"></i> Solo ideal para pré-colheita</p>
+                    <div class="mt-4 pt-3 border-t border-white/10 text-[11px] text-gray-400 flex justify-between">
+                        <span>Previsão Tempo:</span>
+                        <strong class="text-gray-200">Ensolarado (26°C)</strong>
+                    </div>
+                </div>
+
+                <!-- Card 2: Apiário & Mel -->
+                <div class="glass-dark p-6 rounded-2xl border border-amber-400/20">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs text-gray-400 font-semibold uppercase">Laboratório Apiário</span>
+                        <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-vial"></i>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-bold text-white mb-1" id="dash-honey-vol">1.450 Litros</div>
+                    <p class="text-[11px] text-amber-300 font-medium"><i class="fa-solid fa-award"></i> Pureza Média: 99.8%</p>
+                    <div class="mt-4 pt-3 border-t border-white/10 text-[11px] text-gray-400 flex justify-between">
+                        <span>Status Envase:</span>
+                        <strong class="text-emerald-400">Em Operação</strong>
+                    </div>
+                </div>
+
+                <!-- Card 3: Estoque de Insumos -->
+                <div class="glass-dark p-6 rounded-2xl border border-amber-400/20">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs text-gray-400 font-semibold uppercase">Estoque Insumos</span>
+                        <div class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-box-archive"></i>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-bold text-white mb-1">12.500 Unid.</div>
+                    <p class="text-[11px] text-emerald-400 font-medium"><i class="fa-solid fa-box"></i> Embalagens Recicláveis OK</p>
+                    <div class="mt-4 pt-3 border-t border-white/10 text-[11px] text-gray-400 flex justify-between">
+                        <span>Alerta Reposição:</span>
+                        <strong class="text-emerald-400">Nível Seguro</strong>
+                    </div>
+                </div>
+
+                <!-- Card 4: NPS Dinâmico do Cliente -->
+                <div class="glass-dark p-6 rounded-2xl border border-amber-400/20">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs text-gray-400 font-semibold uppercase">Satisfação Consumidor</span>
+                        <div class="w-8 h-8 rounded-lg bg-amber-400/20 text-amber-400 flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-bold text-white mb-1" id="dash-nps font-mono">4.9 / 5.0</div>
+                    <p class="text-[11px] text-amber-300 font-medium" id="dash-total-feedbacks">Baseado em 148 avaliações recentes</p>
+                    <div class="mt-4 pt-3 border-t border-white/10 text-[11px] text-gray-400 flex justify-between">
+                        <span>Taxa Retenção:</span>
+                        <strong class="text-emerald-400">96.4%</strong>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- TABLE OF ACTIVE BATCHES & SHIPMENTS -->
+            <div class="glass-dark rounded-3xl border border-amber-400/20 p-6 sm:p-8 overflow-hidden">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                    <h3 class="font-serif text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-truck-fast text-amber-400"></i> Rastreamento Operacional de Lotes & Entregas
+                    </h3>
+                    <span class="text-xs text-gray-400">Integração ERP/Logística Simulada</span>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-white/5 text-amber-300 font-bold uppercase tracking-wider">
+                            <tr>
+                                <th class="p-3.5 rounded-l-xl">Código do Lote</th>
+                                <th class="p-3.5">Produto</th>
+                                <th class="p-3.5">Volume/Qtd</th>
+                                <th class="p-3.5">Qualidade (Lab)</th>
+                                <th class="p-3.5">Status Logística</th>
+                                <th class="p-3.5 rounded-r-xl text-right">Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/10 text-gray-300">
+                            <tr>
+                                <td class="p-3.5 font-mono text-amber-300 font-bold">#BARRA-CAMC-88</td>
+                                <td class="p-3.5">Barra Energética Mel & Chia</td>
+                                <td class="p-3.5">5.000 un.</td>
+                                <td class="p-3.5"><span class="bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-bold">99.8% Pureza</span></td>
+                                <td class="p-3.5"><span class="bg-amber-500/20 text-amber-300 px-2.5 py-1 rounded-full font-semibold">Em Trânsito (Rota SP-01)</span></td>
+                                <td class="p-3.5 text-right">
+                                    <button onclick="setQuickSearch('#BARRA-CAMC-88')" class="text-amber-400 hover:underline">Ver Linha do Tempo</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-3.5 font-mono text-amber-300 font-bold">#LOTE-MEL-402</td>
+                                <td class="p-3.5">Mel Silvestre 500g</td>
+                                <td class="p-3.5">850 frascos</td>
+                                <td class="p-3.5"><span class="bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-bold">99.9% Pureza</span></td>
+                                <td class="p-3.5"><span class="bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded-full font-semibold">Entregue / Em Estoque CD</span></td>
+                                <td class="p-3.5 text-right">
+                                    <button onclick="setQuickSearch('#LOTE-MEL-402')" class="text-amber-400 hover:underline">Ver Linha do Tempo</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-3.5 font-mono text-amber-300 font-bold">#LOTE-CHIA-2026</td>
+                                <td class="p-3.5">Chia Selecionada Granel</td>
+                                <td class="p-3.5">1.200 kg</td>
+                                <td class="p-3.5"><span class="bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-bold">99.7% Pureza</span></td>
+                                <td class="p-3.5"><span class="bg-sky-500/20 text-sky-300 px-2.5 py-1 rounded-full font-semibold">Em Beneficiamento (Secagem)</span></td>
+                                <td class="p-3.5 text-right">
+                                    <button onclick="setQuickSearch('#LOTE-CHIA-2026')" class="text-amber-400 hover:underline">Ver Linha do Tempo</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SUSTAINABILITY & B2B INSTITUTIONAL SECTION -->
+    <section id="sustentabilidade" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <div>
+                    <span class="text-amber-warm text-xs font-bold uppercase tracking-widest bg-amber-warm/10 px-3 py-1 rounded-full">Sustentabilidade Raciocínio Completo</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-botanic mt-3">Do Solo Vivo à Preservação das Abelhas</h2>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mt-4">
+                        A CAMC opera como um ecossistema circular perfeito: o cultivo de Chia atrai polinizadores locais, enquanto nossas colmeias aceleram a produtividade natural da lavoura sem uso de pesticidas sintéticos.
+                    </p>
+
+                    <div class="mt-8 space-y-4">
+                        <div class="bg-white p-4 rounded-2xl border border-amber-900/10 flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-botanic text-amber-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-hand-holding-heart"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-botanic text-sm">Agricultura Familiar de Precisão</h4>
+                                <p class="text-xs text-gray-500">Registros em tempo real do campo com controle hídrico consciente e fertilizantes orgânicos.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-2xl border border-amber-900/10 flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-botanic text-amber-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-recycle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-botanic text-sm">Embalagens Recicláveis & Rastreáveis</h4>
+                                <p class="text-xs text-gray-500">Insumos selecionados que reduzem a pegada de carbono desde o transporte até o descarte.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- B2B Contact Box -->
+                <div class="bg-botanic text-white p-8 sm:p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-48 h-48 bg-amber-warm/20 rounded-full blur-2xl"></div>
+                    
+                    <span class="text-amber-300 text-xs font-bold uppercase tracking-widest">Portal B2B & Atacado</span>
+                    <h3 class="font-serif text-2xl font-bold mt-2 mb-4">Seja um Distribuidor ou Parceiro CAMC</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed mb-6">
+                        Fornecemos Chia a granel beneficiada e Mel em escala para indústrias funcionais, empórios e redes de supermercados.
+                    </p>
+
+                    <form onsubmit="handleB2BContact(event)" class="space-y-4">
+                        <input type="text" placeholder="Nome da Sua Empresa" required class="w-full p-3 bg-white/10 border border-white/20 rounded-xl text-xs text-white placeholder-gray-400 focus:outline-none focus:border-amber-400">
+                        <input type="email" placeholder="E-mail Corporativo" required class="w-full p-3 bg-white/10 border border-white/20 rounded-xl text-xs text-white placeholder-gray-400 focus:outline-none focus:border-amber-400">
+                        <select class="w-full p-3 bg-botanic-light border border-white/20 rounded-xl text-xs text-white focus:outline-none focus:border-amber-400">
+                            <option>Interesse: Chia a Granel (Atacado)</option>
+                            <option>Interesse: Mel Silvestre em Escala</option>
+                            <option>Interesse: Barra Energética Mel & Chia</option>
+                        </select>
+                        <button type="submit" class="w-full py-3.5 honey-gradient text-botanic-dark font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg hover:brightness-110 transition">
+                            Solicitar Cotação B2B
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-botanic-dark text-gray-400 text-xs py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Col 1 -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg honey-gradient flex items-center justify-center text-botanic-dark font-bold text-sm">
+                            <i class="fa-solid fa-wheat-awn-circle-exclamation"></i>
+                        </div>
+                        <span class="font-serif text-xl font-bold text-white">CAMC</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-[11px]">
+                        Cadeia Alimentar do Mel e Chia. Tecnologia, sustentabilidade e transparência da colmeia ao consumidor final.
+                    </p>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h5 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Navegação</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#produtos" class="hover:text-amber-400 transition">Nossos Produtos</a></li>
+                        <li><a href="#rastreamento" class="hover:text-amber-400 transition">Consulta de Lotes</a></li>
+                        <li><a href="#feedback" class="hover:text-amber-400 transition">Feedback do Consumidor</a></li>
+                        <li><a href="#gestao" class="hover:text-amber-400 transition">Painel Gestor B2B</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h5 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Contato & Fazenda</h5>
+                    <ul class="space-y-2 text-[11px]">
+                        <li><i class="fa-solid fa-location-dot text-amber-400 mr-2"></i> Interior Rural - SP, Brasil</li>
+                        <li><i class="fa-solid fa-envelope text-amber-400 mr-2"></i> contato@camcmelchia.com.br</li>
+                        <li><i class="fa-brands fa-whatsapp text-emerald-400 mr-2"></i> (19) 99842-2026</li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 -->
+                <div>
+                    <h5 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Newsletter Sustentável</h5>
+                    <p class="text-gray-400 mb-3 text-[11px]">Receba boletins de safras e laudos nutricionais em primeira mão.</p>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="Seu e-mail" class="bg-white/10 border border-white/20 p-2 rounded-lg text-white text-xs flex-1 focus:outline-none">
+                        <button onclick="toast('Inscrição realizada com sucesso!')" class="honey-gradient text-botanic-dark px-3 rounded-lg font-bold">OK</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px]">
+                <p>&copy; 2026 CAMC - Cadeia Alimentar do Mel e Chia. Todos os direitos reservados.</p>
+                <div class="flex gap-4">
+                    <span class="hover:text-white cursor-pointer">Termos de Uso</span>
+                    <span class="hover:text-white cursor-pointer">Política de Privacidade</span>
+                    <span class="hover:text-white cursor-pointer">Segurança Alimentar</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CART DRAWER / MODAL -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex justify-end">
+        <div class="w-full max-w-md bg-white h-full p-6 flex flex-col justify-between shadow-2xl animate-fade-in">
+            <div>
+                <div class="flex justify-between items-center border-b pb-4 mb-4">
+                    <h3 class="font-serif text-xl font-bold text-botanic flex items-center gap-2">
+                        <i class="fa-solid fa-basket-shopping text-amber-warm"></i> Seu Carrinho CAMC
+                    </h3>
+                    <button onclick="toggleCartModal()" class="text-gray-400 hover:text-gray-600 text-xl font-bold">&times;</button>
+                </div>
+
+                <div id="cart-items-container" class="space-y-4 max-h-[60vh] overflow-y-auto custom-scrollbar pr-2">
+                    <!-- Javascript populates cart items -->
+                </div>
+            </div>
+
+            <div class="border-t pt-4 space-y-3">
+                <div class="flex justify-between text-sm font-bold text-gray-800">
+                    <span>Total do Pedido:</span>
+                    <span id="cart-total-price" class="text-amber-warm text-lg">R$ 0,00</span>
+                </div>
+                <button onclick="checkoutCart()" class="w-full py-3.5 honey-gradient text-botanic-dark font-bold rounded-xl shadow-lg hover:brightness-105 transition text-xs uppercase tracking-wider">
+                    Finalizar Compra Rastreada
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCT NUTRITION DETAILS MODAL -->
+    <div id="product-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white max-w-2xl w-full rounded-3xl p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+            <div id="product-modal-content">
+                <!-- Javascript dynamic content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // DATA STORAGE SIMULATION
+        const sampleLots = {
+            '#BARRA-CAMC-88': {
+                code: '#BARRA-CAMC-88',
+                product: 'Barra Energética Mel & Chia (Lote Especial)',
+                dateHarvest: '12/10/2026',
+                purity: '99.8%',
+                steps: [
+                    { title: '1. Colheita & Manejo da Chia e Apiário', status: 'completed', desc: 'Sementes de Chia colhidas mecanicamente com umidade do solo a 18.2%. Mel extraído das colmeias da Área Norte.', date: '12/10/2026 08:30' },
+                    { title: '2. Controle de Qualidade & Pureza', status: 'completed', desc: 'Laudo Laboratorial de pureza 99.8% aprovado. Ausência total de resíduos sintéticos.', date: '13/10/2026 14:15' },
+                    { title: '3. Beneficiamento & Industrialização', status: 'completed', desc: 'Secagem rápida e mistura funcional semiautomatizada de mel e chia. Envase em embalagem 100% reciclável.', date: '14/10/2026 11:00' },
+                    { title: '4. Logística Rastreada', status: 'active', desc: 'Despachado via transportadora parceira em veículo refrigerado. Rota de entrega interior-capital.', date: '15/10/2026 09:20 (Em Trânsito)' }
+                ]
+            },
+            '#LOTE-MEL-402': {
+                code: '#LOTE-MEL-402',
+                product: 'Mel Silvestre Puro 500g',
+                dateHarvest: '05/10/2026',
+                purity: '99.9%',
+                steps: [
+                    { title: '1. Extração Apícola', status: 'completed', desc: 'Favo centrifugado a frio preservando enzimas vivas e pólen nativo.', date: '05/10/2026 09:00' },
+                    { title: '2. Análise Físico-Química', status: 'completed', desc: 'Índice de acidez e umidade dentro do padrão Ouro (17.4% umidade).', date: '06/10/2026 10:30' },
+                    { title: '3. Filtragem & Envase em Vidro', status: 'completed', desc: 'Filtragem tripla contra impurezas físicas sem aquecimento excessivo.', date: '07/10/2026 15:00' },
+                    { title: '4. Armazenamento & Logística', status: 'completed', desc: 'Entregue aos pontos de distribuição parceiros.', date: '08/10/2026 16:40' }
+                ]
+            },
+            '#LOTE-CHIA-2026': {
+                code: '#LOTE-CHIA-2026',
+                product: 'Chia Granel Seleção Óptica',
+                dateHarvest: '01/10/2026',
+                purity: '99.7%',
+                steps: [
+                    { title: '1. Colheita Mecanizada da Chia', status: 'completed', desc: 'Colheita realizada em período seco com solo monitorado por sensores.', date: '01/10/2026 07:45' },
+                    { title: '2. Secagem & Sopragem de Palha', status: 'completed', desc: 'Redução natural da umidade a 8% em secador de leito pré-aquecido.', date: '02/10/2026 13:00' },
+                    { title: '3. Seleção Óptica de Impurezas', status: 'active', desc: 'Remoção de sementes imperfeitas via seletora fotocélula de alta velocidade.', date: '03/10/2026 11:20 (Processando)' },
+                    { title: '4. Ensaque e Expedição', status: 'pending', desc: 'Aguardando liberação final de lote para carregamento.', date: 'Pendente' }
+                ]
+            }
+        };
+
+        const productsData = {
+            1: {
+                title: 'Mel Silvestre Puro CAMC (500g)',
+                subtitle: 'Florada Nativa • Extração a Frio • Sem Aditivos',
+                nutrition: [
+                    { label: 'Valor Energético (20g)', val: '64 kcal' },
+                    { label: 'Carboidratos', val: '17g' },
+                    { label: 'Açúcares Naturais', val: '16g' },
+                    { label: 'Proteínas', val: '0.1g' },
+                    { label: 'Sódio', val: '0mg' }
+                ],
+                laudo: 'Certificado de Pureza Apícola #LAB-MEL-999. Livre de glicose milho, antibióticos ou aditivos.'
+            },
+            2: {
+                title: 'Chia Granel Selecionada (500g)',
+                subtitle: 'Ômega-3 • Fibras Solúveis • Seleção Óptica',
+                nutrition: [
+                    { label: 'Valor Energético (25g)', val: '122 kcal' },
+                    { label: 'Fibras Alimentares', val: '8.6g' },
+                    { label: 'Ômega-3', val: '4.9g' },
+                    { label: 'Proteínas', val: '4.2g' },
+                    { label: 'Cálcio', val: '158mg' }
+                ],
+                laudo: 'Sementes selecionadas por densidade e cor. Índice de pureza de 99.9% livre de sujidades orgânicas.'
+            },
+            3: {
+                title: 'Barra Energética Mel & Chia (Single 40g)',
+                subtitle: 'Fórmula Funcional Exclusiva CAMC',
+                nutrition: [
+                    { label: 'Valor Energético (40g)', val: '145 kcal' },
+                    { label: 'Carboidratos Complexos', val: '19g' },
+                    { label: 'Proteínas Vegetais', val: '6.5g' },
+                    { label: 'Fibras', val: '5.2g' },
+                    { label: 'Gorduras Boas (Ômega 3)', val: '3.8g' }
+                ],
+                laudo: 'Barra funcional elaborada sem conservantes sintéticos, aglutinada exclusivamente com mel puro.'
+            }
+        };
+
+        let cart = [];
+        let currentRating = 5;
+        let selectedProductFeedback = 'Barra Mel & Chia';
+        let feedbackCount = 148;
+        let feedbackTotalScore = 148 * 4.9;
+
+        // INITIAL LOAD
+        window.onload = function() {
+            setQuickSearch('#BARRA-CAMC-88');
+        };
+
+        // NAVIGATION & MOBILE MENU
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // QUICK SEARCH LOT
+        function setQuickSearch(lotCode) {
+            document.getElementById('lot-input').value = lotCode;
+            renderTimeline(lotCode);
+        }
+
+        function searchLot(e) {
+            e.preventDefault();
+            const inputVal = document.getElementById('lot-input').value.trim().toUpperCase();
+            if(!inputVal) {
+                toast('Por favor, digite um código de lote.', 'warning');
+                return;
+            }
+            renderTimeline(inputVal);
+        }
+
+        // RENDER TIMELINE DYNAMICALLY
+        function renderTimeline(lotCode) {
+            const container = document.getElementById('timeline-container');
+            const data = sampleLots[lotCode];
+
+            if (!data) {
+                container.innerHTML = `
+                    <div class="text-center py-8">
+                        <i class="fa-solid fa-triangle-exclamation text-amber-400 text-4xl mb-3"></i>
+                        <h4 class="font-serif text-xl font-bold text-white">Lote Não Encontrado</h4>
+                        <p class="text-xs text-gray-300 mt-2">O código <span class="font-mono bg-white/10 px-2 py-0.5 rounded text-amber-300">${lotCode}</span> não consta na base ativa. Tente um dos lotes sugeridos acima.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let stepsHTML = '';
+            data.steps.forEach((step, index) => {
+                let iconClass = 'fa-check text-emerald-400';
+                let circleBorder = 'border-emerald-400 bg-emerald-500/20';
+                let titleColor = 'text-white';
+                
+                if (step.status === 'active') {
+                    iconClass = 'fa-spinner fa-spin text-amber-400';
+                    circleBorder = 'border-amber-400 bg-amber-500/20';
+                    titleColor = 'text-amber-300 font-bold';
+                } else if (step.status === 'pending') {
+                    iconClass = 'fa-clock text-gray-500';
+                    circleBorder = 'border-gray-600 bg-gray-800';
+                    titleColor = 'text-gray-400';
+                }
+
+                stepsHTML += `
+                    <div class="relative flex items-start gap-4 pb-8 last:pb-0">
+                        ${index < data.steps.length - 1 ? '<div class="absolute left-4 top-8 bottom-0 w-0.5 bg-white/15"></div>' : ''}
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center border ${circleBorder} shrink-0 z-10 text-xs">
+                            <i class="fa-solid ${iconClass}"></i>
+                        </div>
+                        <div class="flex-1 bg-white/5 p-4 rounded-2xl border border-white/10">
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-1">
+                                <h4 class="font-semibold text-xs sm:text-sm ${titleColor}">${step.title}</h4>
+                                <span class="text-[10px] text-gray-400 font-mono">${step.date}</span>
+                            </div>
+                            <p class="text-xs text-gray-300 leading-relaxed">${step.desc}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = `
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-white/10 pb-6 mb-6 gap-4">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold text-amber-300 tracking-widest">Relatório Transparente de Origem</span>
+                        <h3 class="font-serif text-2xl font-bold text-white mt-1">${data.product}</h3>
+                        <p class="text-xs text-gray-400">Código do Lote: <span class="font-mono text-amber-300 font-bold">${data.code}</span> | Pureza Verificada: <strong class="text-emerald-400">${data.purity}</strong></p>
+                    </div>
+                    <button onclick="toast('Laudo digital baixado com sucesso!')" class="px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-xl text-xs font-semibold flex items-center gap-2 transition">
+                        <i class="fa-solid fa-file-pdf text-amber-400"></i> Exportar Laudo PDF
+                    </button>
+                </div>
+                <div class="space-y-2">
+                    ${stepsHTML}
+                </div>
+            `;
+        }
+
+        // CART MANAGEMENT
+        function addToCart(title, price, type) {
+            const existing = cart.find(item => item.title === title);
+            if(existing) {
+                existing.qty++;
+            } else {
+                cart.push({ title, price, type, qty: 1 });
+            }
+            updateCartUI();
+            toast(`"${title}" adicionado ao carrinho!`, 'success');
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const count = cart.reduce((sum, item) => sum + item.qty, 0);
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            document.getElementById('cart-count').innerText = count;
+            document.getElementById('cart-count-mobile').innerText = count;
+            document.getElementById('cart-total-price').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+
+            const container = document.getElementById('cart-items-container');
+            if(cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-400 text-xs">
+                        <i class="fa-solid fa-basket-shopping text-3xl text-gray-300 mb-2"></i>
+                        <p>Seu carrinho está vazio.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = cart.map((item, index) => `
+                <div class="flex items-center justify-between bg-cream p-3 rounded-2xl border border-gray-100">
+                    <div>
+                        <h5 class="font-bold text-xs text-botanic">${item.title}</h5>
+                        <p class="text-[11px] text-gray-500">R$ ${item.price.toFixed(2).replace('.', ',')} x ${item.qty}</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-bold text-xs text-amber-warm">R$ ${(item.price * item.qty).toFixed(2).replace('.', ',')}</span>
+                        <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-600 text-xs">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleCartModal() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        function checkoutCart() {
+            if(cart.length === 0) {
+                toast('Adicione produtos antes de finalizar.', 'warning');
+                return;
+            }
+            cart = [];
+            updateCartUI();
+            toggleCartModal();
+            toast('Pedido realizado com sucesso! Lote vinculado gerado.', 'success');
+        }
+
+        // FEEDBACK SYSTEM LOGIC
+        function selectFeedbackProduct(btn, prodName) {
+            document.querySelectorAll('.fb-prod-btn').forEach(b => {
+                b.classList.remove('border-amber-warm', 'bg-amber-50');
+                b.classList.add('border-gray-200');
+            });
+            btn.classList.remove('border-gray-200');
+            btn.classList.add('border-amber-warm', 'bg-amber-50');
+            selectedProductFeedback = prodName;
+        }
+
+        function setRating(stars) {
+            currentRating = stars;
+            const starContainer = document.getElementById('star-rating');
+            const icons = starContainer.querySelectorAll('i');
+            icons.forEach((icon, idx) => {
+                if(idx < stars) {
+                    icon.className = 'fa-solid fa-star text-amber-400';
+                } else {
+                    icon.className = 'fa-regular fa-star text-gray-300';
+                }
+            });
+
+            const labels = {
+                1: '1.0 - Insatisfeito',
+                2: '2.0 - Regular',
+                3: '3.0 - Bom',
+                4: '4.0 - Muito Bom',
+                5: '5.0 - Excelente!'
+            };
+            document.getElementById('rating-label').innerText = labels[stars];
+        }
+
+        function toggleTag(btn) {
+            btn.classList.toggle('bg-amber-warm');
+            btn.classList.toggle('text-white');
+            btn.classList.toggle('bg-gray-100');
+            btn.classList.toggle('text-gray-700');
+        }
+
+        function submitFeedback(e) {
+            e.preventDefault();
+            
+            // Recalculate NPS metrics in real-time
+            feedbackCount++;
+            feedbackTotalScore += currentRating;
+            const newNPS = (feedbackTotalScore / feedbackCount).toFixed(1);
+
+            document.getElementById('dash-nps').innerText = `${newNPS} / 5.0`;
+            document.getElementById('dash-total-feedbacks').innerText = `Baseado em ${feedbackCount} avaliações recentes`;
+
+            toast(`Feedback enviado! Cupom gerado: CAMC-ORGANIC-15`, 'success');
+            document.getElementById('feedback-form').reset();
+            setRating(5);
+        }
+
+        // PRODUCT DETAILS MODAL
+        function openProductModal(id) {
+            const data = productsData[id];
+            const content = document.getElementById('product-modal-content');
+
+            content.innerHTML = `
+                <span class="text-xs font-bold text-amber-warm uppercase tracking-wider bg-amber-100 px-3 py-1 rounded-full">Ficha Técnica & Tabela Nutricional</span>
+                <h3 class="font-serif text-2xl font-bold text-botanic mt-3">${data.title}</h3>
+                <p class="text-xs text-gray-500 mb-6">${data.subtitle}</p>
+
+                <h4 class="font-bold text-xs uppercase tracking-wider text-botanic mb-3 border-b pb-1">Tabela Nutricional (Por Porção)</h4>
+                <div class="space-y-2 mb-6 text-xs">
+                    ${data.nutrition.map(n => `
+                        <div class="flex justify-between py-1 border-b border-gray-100">
+                            <span class="text-gray-600">${n.label}</span>
+                            <strong class="text-botanic">${n.val}</strong>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="bg-cream-dark p-4 rounded-2xl border border-amber-900/10">
+                    <h5 class="font-bold text-xs text-botanic flex items-center gap-1.5 mb-1">
+                        <i class="fa-solid fa-microscope text-amber-warm"></i> Laudo de Qualidade da Origem
+                    </h5>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">${data.laudo}</p>
+                </div>
+            `;
+
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        // B2B FORM HANDLER
+        function handleB2BContact(e) {
+            e.preventDefault();
+            toast('Solicitação B2B enviada! Entraremos em contato via WhatsApp.', 'success');
+            e.target.reset();
+        }
+
+        // REFRESH DASHBOARD SIMULATION
+        function refreshDashboard() {
+            const soil = (17.5 + Math.random() * 2).toFixed(1);
+            const honey = Math.floor(1400 + Math.random() * 100);
+            
+            document.getElementById('dash-soil').innerText = `${soil}% Umidade`;
+            document.getElementById('dash-honey-vol').innerText = `${honey.toLocaleString()} Litros`;
+            toast('Dados dos sensores do campo e apiário atualizados.', 'info');
+        }
+
+        // TOAST NOTIFICATION HELPER
+        function toast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toastEl = document.createElement('div');
+            
+            let bg = 'bg-botanic text-white border-amber-400';
+            if(type === 'success') bg = 'bg-emerald-900 text-white border-emerald-400';
+            if(type === 'warning') bg = 'bg-amber-900 text-white border-amber-400';
+
+            toastEl.className = `${bg} border px-4 py-3 rounded-2xl shadow-2xl text-xs font-semibold flex items-center gap-3 transition-all duration-300 pointer-events-auto transform translate-y-2 opacity-0`;
+            toastEl.innerHTML = `
+                <i class="fa-solid fa-bell text-amber-400 text-sm"></i>
+                <span>${message}</span>
+            `;
+
+            container.appendChild(toastEl);
+
+            setTimeout(() => {
+                toastEl.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toastEl.classList.add('opacity-0');
+                setTimeout(() => toastEl.remove(), 300);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
